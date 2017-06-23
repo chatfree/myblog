@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Article</title>
+</head>
+<body>
+<form method="post" action="{% url 'blog:save_article' %}">
+    {% csrf_token %}
+    <input type="hidden" value="{{ article.id}}" name="id">
+    <label>文章标题</label>
+    <input type="text" name="title" value="{{article.title}}">
+    <br/>
+    <label>文章内容</label>
+    <textarea name="content">{{article.content}}</textarea>
+    <br/>
+    <input type="submit" value="保存">
+</form>
+</body>
+</html>
